@@ -16,8 +16,7 @@ extern InternalNode int_arr[SIZEOF_INTERNAL_QUEUE];
 static void __attribute__((__always_inline__)) 
 insertion_sort()
 {
-    int i, j;
-    for (i = 1; i < VEC_SIZE; ++i) {
+    for (int j, i = 1; i < VEC_SIZE; ++i) {
         u32 current = vec[i];
 
         for (j = i - 1; j >= 0 && vec[j] > current; j-- )
@@ -28,12 +27,10 @@ insertion_sort()
 }
 
 
-
-
-
 void __attribute__((__always_inline__)) 
 create_tree()
 {
+    //sort vec to create tree
     insertion_sort();
     int vec_c = 0;
     int int_c = 0;
@@ -47,6 +44,8 @@ create_tree()
 
     vec_c += 2;
 
+    //in place creation of "internal nodes" for the tree.
+    //pointers left and right are uchar offsets from the start of the underlying vector, vec
     while (vec_c < VEC_SIZE) {
         if (vec[vec_c] < int_arr[int_c].count) {
             if ( vec_c != VEC_SIZE - 1 && vec[vec_c + 1] < int_arr[int_c].count) {

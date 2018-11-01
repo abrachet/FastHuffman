@@ -65,7 +65,4 @@ typedef struct {
     offset_t left;
 } InternalNode;
 
-
-
-void __attribute__((__always_inline__)) insertion_sort();
 void __attribute__((__always_inline__)) create_tree();
