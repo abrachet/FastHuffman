@@ -66,9 +66,7 @@ int main(int argc, char** argv)
         printf("%c appears %u\n", i, vec[i]);
     #endif
 
-    insertion_sort();
-    //create_tree();
+    create_tree();
 
-    int arb_break = 1;
-    arb_break++;
+    return 0;
 }
