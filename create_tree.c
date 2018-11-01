@@ -13,8 +13,7 @@ extern InternalNode int_arr[SIZEOF_INTERNAL_QUEUE];
 //optimize to look on the edges first
 //might be slower though
 
-//static 
-void __attribute__((__always_inline__)) 
+static void __attribute__((__always_inline__)) 
 insertion_sort()
 {
     int i, j;
@@ -36,12 +35,17 @@ void __attribute__((__always_inline__))
 create_tree()
 {
     insertion_sort();
-    int vec_c = 2;
+    int vec_c = 0;
     int int_c = 0;
 
+    //ignoring characters which never appear
+    for (int i = 0; !vec[i]; i++ ) vec_c++;
+
     //InternalNode int_arr[SIZEOF_INTERNAL_QUEUE];
-    int_arr[0] = (InternalNode){ .count = vec[0] + vec[1], .left = 0, .right = 1 };
+    int_arr[0] = (InternalNode){ .count = vec[vec_c] + vec[vec_c + 1], .left = 0, .right = 1 };
     //first two chars are always less, assign them to the first internal node
+
+    vec_c += 2;
 
     while (vec_c < VEC_SIZE) {
         if (vec[vec_c] < int_arr[int_c].count) {

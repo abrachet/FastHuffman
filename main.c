@@ -57,6 +57,7 @@ int main(int argc, char** argv)
 
     for (int i = 0; i < partition; i++)
         pthread_join(tids[i], NULL);
+        
     
     reference_vec = vec;
 

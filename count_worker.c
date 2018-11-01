@@ -25,7 +25,7 @@ struct thread_arg* create_args(u16 partition, u64 filesize)
     }
 
     arr[partition - 1].start = prev;
-    arr[partition - 1].end = prev + (filesize - prev);
+    arr[partition - 1].end = filesize;
 
     return arr;
 }

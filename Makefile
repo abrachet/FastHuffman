@@ -3,7 +3,7 @@ WARNING = -Wall -Wshadow --pedantic
 ERROR = -Wvla -Werror
 OPTIMIZATIONS = -O2 -march=native 
 #-mllvm -force-vector-width=8 -avx -march=core-avx2
-GCC = gcc -std=c99 $(WARNING) $(ERROR) $(OPTIMIZATIONS) 
+GCC = gcc -std=c99 -g $(WARNING) $(ERROR) $(OPTIMIZATIONS) 
 
 TESTFLAGS = -DNDEBUG
 
@@ -23,7 +23,7 @@ clean:
 	rm -f $(OBJS) $(TARGET)
 
 testmemory: $(TARGET)
-	$(VALGRIND) ./$(TARGET) global_index.js 5
+	$(VALGRIND) ./$(TARGET) global_index.js 1
 
 debug: $(TARGET)
 	lldb ./$(TARGET) text.txt 5
