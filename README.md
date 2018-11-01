@@ -1,0 +1,1 @@
+Extremely fast Huffman compression utilizing multithreading and SIMD cpu instructions for maximum performance
